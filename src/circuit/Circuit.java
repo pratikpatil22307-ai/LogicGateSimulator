@@ -112,6 +112,7 @@ public class Circuit {
             Gate g = ready.poll();
             order.add(g);
             for (Gate next : g.getFanout()) {
+            	//left is basically integer
                 int left = remaining.get(next) - 1;
                 remaining.put(next, left);
                 if (left == 0) {
